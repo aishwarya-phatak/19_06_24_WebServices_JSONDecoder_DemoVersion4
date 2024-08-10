@@ -15,8 +15,8 @@ struct University : Decodable{
     var name : String
     
     enum UniversityKeys: String,CodingKey{
-        case alpha_two_code = "AlphaTwoCode"
-        case web_pages = "webPages"
+        case alphaTwoCode = "alpha_two_code"
+        case webPages = "web_pages"
         case country
         case domains
         case name
@@ -24,8 +24,8 @@ struct University : Decodable{
     
     init(from decoder: any Decoder) throws {
         let mainContainer = try decoder.container(keyedBy: UniversityKeys.self)
-        self.alpha_two_code = try mainContainer.decode(String.self, forKey: .alpha_two_code)
-        self.web_pages = try mainContainer.decode([String].self, forKey: .web_pages)
+        self.alpha_two_code = try mainContainer.decode(String.self, forKey: .alphaTwoCode)
+        self.web_pages = try mainContainer.decode([String].self, forKey: .webPages)
         self.country = try mainContainer.decode(String.self, forKey: .country)
         self.domains = try mainContainer.decode([String].self, forKey: .domains)
         self.name = try mainContainer.decode(String.self, forKey: .name)
